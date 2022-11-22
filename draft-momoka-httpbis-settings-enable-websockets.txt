@@ -1,0 +1,118 @@
+
+
+
+
+HTTP                                The University of Tokyo/WIDE Project
+Internet-Draft                                          22 November 2022
+Updates: 8441, 9220 (if approved)                                       
+Intended status: Standards Track                                        
+Expires: 26 May 2023
+
+
+         Define SETTINGS_ENABLE_WEBSOCKETS for HTTP/2 & HTTP/3
+         draft-momoka-httpbis-settings-enable-websockets-latest
+
+Abstract
+
+   I want SETTINGS parameter.
+
+Discussion Venues
+
+   This note is to be removed before publishing as an RFC.
+
+   Discussion of this document takes place on the HTTP Working Group
+   mailing list (ietf-http-wg@w3.org), which is archived at
+   https://lists.w3.org/Archives/Public/ietf-http-wg/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/momoka0122y/draft-settings-enable-websockets.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 26 May 2023.
+
+Copyright Notice
+
+   Copyright (c) 2022 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+   2.  Terminology
+   3.  Motivation and Problem Solved
+   4.  Deployment Notes
+   5.  Security Considerations
+   6.  IANA Considerations
+   7.  Implementation Status
+   Acknowledgments
+   Author's Address
+
+1.  Introduction
+
+   We need it.
+
+2.  Terminology
+
+   Maybe we don
+
+3.  Motivation and Problem Solved
+
+   clients will love the information
+
+4.  Deployment Notes
+
+   TODO
+
+5.  Security Considerations
+
+   TODO Security
+
+6.  IANA Considerations
+
+   Ask IANA for viable.  This document has no IANA actions.
+
+7.  Implementation Status
+
+   TODO:
+
+Acknowledgments
+
+   TODO acknowledge people.
+
+   Thank you for reading this draft.
+
+Author's Address
+
+   Momoka Yamamoto
+   The University of Tokyo/WIDE Project
+   Japan
+   Email: momoka.my6@gmail.com
+
+   Additional contact information:
+
+      山本 桃歌
+      Japan
+      The University of Tokyo/WIDE Project
