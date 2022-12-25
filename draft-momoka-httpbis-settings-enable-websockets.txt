@@ -15,15 +15,11 @@ Expires: 28 June 2023
 
 Abstract
 
-   This document proposes the addition of a new HTTP settings parameter,
-   SETTINGS_ENABLE_WEBSOCKETS, which would be sent by the server to the
-   client in the HTTP/2 or HTTP/3 handshake response.  This parameter
-   would indicate whether the server supports WebSockets over HTTP/2 or
-   HTTP/3 on the established connection.  The SETTINGS_ENABLE_WEBSOCKETS
-   parameter would allow the client to determine in advance whether the
-   server supports WebSockets over the connection, allowing it to avoid
-   sending unnecessary WebSocket handshake requests on HTTP/2 or HTTP/3
-   connections that do not support bootstrapping WebSockets.
+   This document proposes a new HTTP settings parameter,
+   SETTINGS_ENABLE_WEBSOCKETS.  This parameter would indicate whether
+   the server supports bootstrapping WebSockets over the established
+   connection, and allow the client to determine in advance whether the
+   server supports WebSockets over the connection.
 
 Discussion Venues
 
@@ -85,7 +81,7 @@ Table of Contents
 
    The mechanisms for running the WebSocket protocol [RFC6455] over a
    single stream of an HTTP/2 and HTTP/3 connection are defined in
-   [RFC8441] and [RFC8441].  For bootstrapping WebSockets from HTTP/2
+   [RFC8441] and [RFC9220].  For bootstrapping WebSockets from HTTP/2
    and HTTP/3, the extended CONNECT mechanism is used.  Support for the
    extended CONNECT is advertised using HTTP/2 and HTTP/3 settings
    SETTINGS_ENABLE_CONNECT_PROTOCOL.  However, the support of extended
@@ -104,14 +100,21 @@ Table of Contents
 
 2.  SETTINGS_ENABLE_WEBSOCKETS settigs parameter for h2 nad h3
 
-   This document proposes the addition of a new HTTP settings parameter,
-   SETTINGS_ENABLE_WEBSOCKETS, which would be included in the SETTINGS
-   frame of the HTTP/2 or HTTP/3 handshake response.  If the server
-   supports WebSockets over the HTTP connection, it would include the
-   SETTINGS_ENABLE_WEBSOCKETS parameter in the SETTINGS frame with a
-   value of 1.  If the server does not support WebSockets over HTTP/2 or
-   HTTP/3, it would not include the parameter in the SETTINGS frame or
-   send it with a value of 0.
+   This document adds a new SETTINGS parameter to those defined by
+   [HTTP/3] Section 11.2.2 and [HTTP/2] Section 11.3.
+
+   The new parameter name is SETTINGS_ENABLE_WEBSOCKETS.  The value of
+   the parameter MUST be 0 or 1.
+
+   A sender MUST NOT send a SETTINGS_ENABLE_WEBSOCKETS parameter with
+   the value of 0 after previously sending a value of 1.
+
+   If the server supports bootstrapping WebSockets over the HTTP
+   connection, it would include the SETTINGS_ENABLE_WEBSOCKETS parameter
+   in the SETTINGS frame with a value of 1.  If the server does not
+   support WebSockets over HTTP/2 or HTTP/3, it would not include the
+   parameter in the SETTINGS frame or send it with a value of 0.
+   Receipt of this parameter by a server does not have any impact.
 
    The SETTINGS_ENABLE_WEBSOCKETS parameter would allow the client to
    determine in advance whether the server supports WebSockets over the
@@ -125,14 +128,14 @@ Table of Contents
 3.  Security Considerations
 
    This document introduces no new security considerations beyond those
-   discussed in [RFC8441] and [RFC8441].
+   discussed in [RFC8441].
 
 4.  IANA Considerations
 
 4.1.  HTTP3
 
-   This document registers a new setting in the "HTTP/3 Settings"
-   registry (Section 11.2.2 of [HTTP/3]).
+   This document registers a new entry in the "HTTP/3 Settings" registry
+   (Section 11.2.2 of [HTTP/3]).
 
    Value: TBD Setting Name: SETTINGS_ENABLE_WEBSOCKETS Default: 0
    Status: permanent Specification: This document Change Controller:
@@ -140,8 +143,8 @@ Table of Contents
 
 4.2.  HTTP2
 
-   This document registers an entry in the "HTTP/2 Settings" registry
-   (Section 11.3 of [HTTP/2]).
+   This document registers a new entry in the "HTTP/2 Settings" registry
+   (Section 11.1 of [HTTP/2]).
 
    Code: TBD Name: SETTINGS_ENABLE_ENABLE_WEBSOCKETS Default: 0 Status:
    permanent Specification: This document Change Controller: IETF
@@ -170,6 +173,10 @@ Table of Contents
    [RFC8441]  McManus, P., "Bootstrapping WebSockets with HTTP/2",
               RFC 8441, DOI 10.17487/RFC8441, September 2018,
               <https://www.rfc-editor.org/rfc/rfc8441>.
+
+   [RFC9220]  Hamilton, R., "Bootstrapping WebSockets with HTTP/3",
+              RFC 9220, DOI 10.17487/RFC9220, June 2022,
+              <https://www.rfc-editor.org/rfc/rfc9220>.
 
 5.2.  Informative References
 
