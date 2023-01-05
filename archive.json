@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-01-03T00:49:36.508636+00:00",
+  "timestamp": "2023-01-05T00:52:45.462121+00:00",
   "repo": "momoka0122y/draft-settings-enable-websockets",
   "labels": [
     {
@@ -67,5 +67,32 @@
       "comments": []
     }
   ],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 2,
+      "id": "PR_kwDOIefdHc5GnyQ-",
+      "title": "client MUST not send SETTINGS_ENABLE_WEBSOCKETS",
+      "url": "https://github.com/momoka0122y/draft-settings-enable-websockets/pull/2",
+      "state": "OPEN",
+      "author": "momoka0122y",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "resolve #1",
+      "createdAt": "2023-01-04T12:31:59Z",
+      "updatedAt": "2023-01-04T12:33:33Z",
+      "baseRepository": "momoka0122y/draft-settings-enable-websockets",
+      "baseRefName": "main",
+      "baseRefOid": "47e71c2908a04bab70a78d18a26ab8f9b5453872",
+      "headRepository": "momoka0122y/draft-settings-enable-websockets",
+      "headRefName": "ClientMustNot",
+      "headRefOid": "ee0265eaad9388fe04d2606f9b4b2d889f85bed2",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
