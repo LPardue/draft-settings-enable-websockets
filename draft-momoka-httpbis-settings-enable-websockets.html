@@ -1204,6 +1204,8 @@ with the value of 0 after previously sending a value of 1.<a href="#section-2-3"
 Receipt of this parameter by a server does not have any impact.<a href="#section-2-5" class="pilcrow">¶</a></p>
 <p id="section-2-6">The SETTINGS_ENABLE_WEBSOCKETS parameter would allow the client to determine in advance whether the server supports WebSockets over the connection for HTTP/2 or HTTP/3, allowing the client to avoid sending unnecessary WebSocket handshake requests on HTTP/2 or HTTP/3 connections that do not support WebSockets.<a href="#section-2-6" class="pilcrow">¶</a></p>
 <p id="section-2-7">This will improve compatibility with other extended CONNECT-based protocols.<a href="#section-2-7" class="pilcrow">¶</a></p>
+<p id="section-2-8">For compatibility with past implementations which do not use this parameter,
+ clients MAY initiate a WebSocket request without the receipt of this parameter.<a href="#section-2-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">

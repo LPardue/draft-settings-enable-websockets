@@ -127,6 +127,10 @@ Table of Contents
    This will improve compatibility with other extended CONNECT-based
    protocols.
 
+   For compatibility with past implementations which do not use this
+   parameter, clients MAY initiate a WebSocket request without the
+   receipt of this parameter.
+
 3.  Security Considerations
 
    This document introduces no new security considerations beyond those
