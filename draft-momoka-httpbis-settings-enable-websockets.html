@@ -7,7 +7,8 @@
 <title>SETTINGS_ENABLE_WEBSOCKETS settings parameter for HTTP/2 and HTTP/3</title>
 <meta content="山本 桃歌 (Momoka Yamamoto)" name="author">
 <meta content="
-       This document proposes a new HTTP settings parameter, SETTINGS_ENABLE_WEBSOCKETS. This parameter indicates whether the server supports bootstrapping WebSockets over the established connection. 
+       This document proposes a new HTTP settings parameter, SETTINGS_ENABLE_WEBSOCKETS.
+This parameter indicates whether the server supports bootstrapping WebSockets over the established connection. 
     " name="description">
 <meta content="xml2rfc 3.15.3" name="generator">
 <meta content="WebSockets" name="keyword">
@@ -1076,7 +1077,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">SETTINGS_ENABLE_WEBSOCKETS settings parameter for HTTP/2 and HTTP/3</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This document proposes a new HTTP settings parameter, SETTINGS_ENABLE_WEBSOCKETS. This parameter indicates whether the server supports bootstrapping WebSockets over the established connection.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document proposes a new HTTP settings parameter, SETTINGS_ENABLE_WEBSOCKETS.
+This parameter indicates whether the server supports bootstrapping WebSockets over the established connection.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-discussion-venues">
@@ -1183,9 +1185,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">The mechanisms for running the WebSocket protocol <span>[<a href="#RFC6455" class="cite xref">RFC6455</a>]</span> over a single stream of an HTTP/2 and HTTP/3 connection is defined in <span>[<a href="#RFC8441" class="cite xref">RFC8441</a>]</span> and <span>[<a href="#RFC9220" class="cite xref">RFC9220</a>]</span>. The extended CONNECT mechanism is used for bootstrapping WebSockets from HTTP/2 and HTTP/3. Support for the extended CONNECT is advertised using HTTP/2 and HTTP/3 settings parameter SETTINGS_ENABLE_CONNECT_PROTOCOL. However, the support of extended CONNECT does not necessarily indicate support for WebSockets over that HTTP connection. Other protocols such as <span>[<a href="#WEBTRANSPORT" class="cite xref">WEBTRANSPORT</a>]</span> also use extended CONNECT and send SETTINGS_ENABLE_CONNECT_PROTOCOL settings parameters as well.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">Suppose the server supports extended CONNECT but not bootstrapping WebSockets over that HTTP connection. In this case, the client sending a WebSocket handshake request will result in a response of 501 (Not Implemented) status code (Section 15.6.2 of <span>[<a href="#HTTP" class="cite xref">HTTP</a>]</span>), and the client would need to fall back to trying the WebSocket handshake over HTTP/1.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">This is why a SETTINGS_ENABLE_WEBSOCKETS settings parameter is needed.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-1">The mechanisms for running the WebSocket protocol <span>[<a href="#RFC6455" class="cite xref">RFC6455</a>]</span> over a single stream of an HTTP/2 and HTTP/3 connection is defined in <span>[<a href="#RFC8441" class="cite xref">RFC8441</a>]</span> and <span>[<a href="#RFC9220" class="cite xref">RFC9220</a>]</span>.
+The extended CONNECT mechanism is used for bootstrapping WebSockets from HTTP/2 and HTTP/3.
+Support for the extended CONNECT mechanism is advertised using HTTP/2 and HTTP/3 settings parameter SETTINGS_ENABLE_CONNECT_PROTOCOL.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">However, the support of extended CONNECT does not necessarily indicate support for WebSockets over that HTTP connection.
+Other protocols such as <span>[<a href="#WEBTRANSPORT" class="cite xref">WEBTRANSPORT</a>]</span> also use extended CONNECT and send SETTINGS_ENABLE_CONNECT_PROTOCOL settings parameters as well.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">Suppose the server supports extended CONNECT but not bootstrapping WebSockets over that HTTP connection.
+In this case, the client sending a WebSocket handshake request will result in a response of 501 (Not Implemented) status code (Section 15.6.2 of <span>[<a href="#HTTP" class="cite xref">HTTP</a>]</span>),
+and the client would need to fall back to trying the WebSocket handshake over HTTP/1.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">This is why a SETTINGS_ENABLE_WEBSOCKETS settings parameter is needed.<a href="#section-1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="settingsenablewebsockets-settigs-parameter-for-h2-and-h3">
@@ -1195,16 +1203,18 @@ svg :is([fill="white"], [fill^="#fff"]) {
       </h2>
 <p id="section-2-1">This document adds a new SETTINGS parameter to those defined by
 <span>[<a href="#HTTP3" class="cite xref">HTTP/3</a>]</span> Section 11.2.2 and <span>[<a href="#HTTP2" class="cite xref">HTTP/2</a>]</span> Section 11.3.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">The new parameter name is SETTINGS_ENABLE_WEBSOCKETS. The
-value of the parameter MUST be 0 or 1, with 0 being the default.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-2">The new parameter name is SETTINGS_ENABLE_WEBSOCKETS.
+The value of the parameter MUST be 0 or 1, with 0 being the default.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">A sender MUST NOT send a SETTINGS_ENABLE_WEBSOCKETS parameter
 with the value of 0 after previously sending a value of 1.<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">If the server supports bootstrapping WebSockets over the HTTP connection, it SHOULD include the SETTINGS_ENABLE_WEBSOCKETS parameter in the SETTINGS frame with a value of 1.
-If the server does not support bootstrapping WebSockets over the HTTP connection it SHOULD send it with a value of 0.<a href="#section-2-4" class="pilcrow">¶</a></p>
+<p id="section-2-4">If the server supports bootstrapping WebSockets over the HTTP connection,
+it SHOULD include the SETTINGS_ENABLE_WEBSOCKETS parameter in the SETTINGS frame with a value of 1.
+If the server does not support bootstrapping WebSockets over the HTTP connection it SHOULD send the parameter with a value of 0.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <p id="section-2-5">A client MUST not send this setting parameter.
 Receipt of this parameter by a server does not have any impact.<a href="#section-2-5" class="pilcrow">¶</a></p>
-<p id="section-2-6">The SETTINGS_ENABLE_WEBSOCKETS parameter would allow the client to determine in advance whether the server supports WebSockets over the connection for HTTP/2 or HTTP/3, allowing the client to avoid sending unnecessary WebSocket handshake requests on HTTP/2 or HTTP/3 connections that do not support WebSockets.<a href="#section-2-6" class="pilcrow">¶</a></p>
-<p id="section-2-7">This will improve compatibility with other extended CONNECT-based protocols.<a href="#section-2-7" class="pilcrow">¶</a></p>
+<p id="section-2-6">The SETTINGS_ENABLE_WEBSOCKETS parameter would allow the client to determine in advance whether the server supports WebSockets over the connection for HTTP/2 or HTTP/3.
+This allows the client to avoid sending unnecessary WebSocket handshake requests on HTTP connections that do not support WebSockets.<a href="#section-2-6" class="pilcrow">¶</a></p>
+<p id="section-2-7">This mechanism will improve compatibility with other extended CONNECT-based protocols.<a href="#section-2-7" class="pilcrow">¶</a></p>
 <p id="section-2-8">For compatibility with past implementations which do not use this parameter,
  clients MAY initiate a WebSocket request without the receipt of this parameter.<a href="#section-2-8" class="pilcrow">¶</a></p>
 </section>
