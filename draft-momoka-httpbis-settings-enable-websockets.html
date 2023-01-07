@@ -1196,10 +1196,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-2-1">This document adds a new SETTINGS parameter to those defined by
 <span>[<a href="#HTTP3" class="cite xref">HTTP/3</a>]</span> Section 11.2.2 and <span>[<a href="#HTTP2" class="cite xref">HTTP/2</a>]</span> Section 11.3.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">The new parameter name is SETTINGS_ENABLE_WEBSOCKETS. The
-value of the parameter MUST be 0 or 1.<a href="#section-2-2" class="pilcrow">¶</a></p>
+value of the parameter MUST be 0 or 1, with 0 being the default.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">A sender MUST NOT send a SETTINGS_ENABLE_WEBSOCKETS parameter
 with the value of 0 after previously sending a value of 1.<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">If the server supports bootstrapping WebSockets over the HTTP connection, it would include the SETTINGS_ENABLE_WEBSOCKETS parameter in the SETTINGS frame with a value of 1. If the server does not support WebSockets over HTTP/2 or HTTP/3, it will not have the parameter in the SETTINGS frame or send it with a value of 0.<a href="#section-2-4" class="pilcrow">¶</a></p>
+<p id="section-2-4">If the server supports bootstrapping WebSockets over the HTTP connection, it SHOULD include the SETTINGS_ENABLE_WEBSOCKETS parameter in the SETTINGS frame with a value of 1.
+If the server does not support bootstrapping WebSockets over the HTTP connection it SHOULD send it with a value of 0.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <p id="section-2-5">A client MUST not send this setting parameter.
 Receipt of this parameter by a server does not have any impact.<a href="#section-2-5" class="pilcrow">¶</a></p>
 <p id="section-2-6">The SETTINGS_ENABLE_WEBSOCKETS parameter would allow the client to determine in advance whether the server supports WebSockets over the connection for HTTP/2 or HTTP/3, allowing the client to avoid sending unnecessary WebSocket handshake requests on HTTP/2 or HTTP/3 connections that do not support WebSockets.<a href="#section-2-6" class="pilcrow">¶</a></p>
