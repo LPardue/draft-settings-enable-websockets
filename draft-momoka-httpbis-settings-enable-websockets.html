@@ -1026,7 +1026,7 @@ svg :is([stroke="white"], [stroke^="#fff"]) {
 svg :is([fill="black"], [fill^="#000"], :not([fill])) {
   fill: var(--text-color);
 }
-svg :is([stroke="fill"], [fill^="#fff"]) {
+svg :is([fill="white"], [fill^="#fff"]) {
   fill: var(--background-color);
 }
 </style>
@@ -1037,11 +1037,11 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SETTINGS_ENABLE_WEBSOCKETS</td>
-<td class="right">December 2022</td>
+<td class="right">January 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Yamamoto</td>
-<td class="center">Expires 28 June 2023</td>
+<td class="center">Expires 11 July 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1057,12 +1057,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc8441" class="eref">8441</a>, <a href="https://www.rfc-editor.org/rfc/rfc9220" class="eref">9220</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-12-25" class="published">25 December 2022</time>
+<time datetime="2023-01-07" class="published">7 January 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-06-28">28 June 2023</time></dd>
+<dd class="expires"><time datetime="2023-07-11">11 July 2023</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1108,7 +1108,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 28 June 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 11 July 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1117,7 +1117,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2022 IETF Trust and the persons identified as the
+            Copyright (c) 2023 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1199,10 +1199,11 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 value of the parameter MUST be 0 or 1.<a href="#section-2-2" class="pilcrow">¶</a></p>
 <p id="section-2-3">A sender MUST NOT send a SETTINGS_ENABLE_WEBSOCKETS parameter
 with the value of 0 after previously sending a value of 1.<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">If the server supports bootstrapping WebSockets over the HTTP connection, it would include the SETTINGS_ENABLE_WEBSOCKETS parameter in the SETTINGS frame with a value of 1. If the server does not support WebSockets over HTTP/2 or HTTP/3, it will not have the parameter in the SETTINGS frame or send it with a value of 0.
-Receipt of this parameter by a server does not have any impact.<a href="#section-2-4" class="pilcrow">¶</a></p>
-<p id="section-2-5">The SETTINGS_ENABLE_WEBSOCKETS parameter would allow the client to determine in advance whether the server supports WebSockets over the connection for HTTP/2 or HTTP/3, allowing the client to avoid sending unnecessary WebSocket handshake requests on HTTP/2 or HTTP/3 connections that do not support WebSockets.<a href="#section-2-5" class="pilcrow">¶</a></p>
-<p id="section-2-6">This will improve compatibility with other extended CONNECT-based protocols.<a href="#section-2-6" class="pilcrow">¶</a></p>
+<p id="section-2-4">If the server supports bootstrapping WebSockets over the HTTP connection, it would include the SETTINGS_ENABLE_WEBSOCKETS parameter in the SETTINGS frame with a value of 1. If the server does not support WebSockets over HTTP/2 or HTTP/3, it will not have the parameter in the SETTINGS frame or send it with a value of 0.<a href="#section-2-4" class="pilcrow">¶</a></p>
+<p id="section-2-5">A client MUST not send this setting parameter.
+Receipt of this parameter by a server does not have any impact.<a href="#section-2-5" class="pilcrow">¶</a></p>
+<p id="section-2-6">The SETTINGS_ENABLE_WEBSOCKETS parameter would allow the client to determine in advance whether the server supports WebSockets over the connection for HTTP/2 or HTTP/3, allowing the client to avoid sending unnecessary WebSocket handshake requests on HTTP/2 or HTTP/3 connections that do not support WebSockets.<a href="#section-2-6" class="pilcrow">¶</a></p>
+<p id="section-2-7">This will improve compatibility with other extended CONNECT-based protocols.<a href="#section-2-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">

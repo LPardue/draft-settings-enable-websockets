@@ -4,9 +4,9 @@
 
 HTTP                                             山本 桃歌 (M. Yamamoto)
 Internet-Draft                      The University of Tokyo/WIDE Project
-Updates: 8441, 9220 (if approved)                       25 December 2022
+Updates: 8441, 9220 (if approved)                         7 January 2023
 Intended status: Standards Track                                        
-Expires: 28 June 2023
+Expires: 11 July 2023
 
 
   SETTINGS_ENABLE_WEBSOCKETS settings parameter for HTTP/2 and HTTP/3
@@ -45,11 +45,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 June 2023.
+   This Internet-Draft will expire on 11 July 2023.
 
 Copyright Notice
 
-   Copyright (c) 2022 IETF Trust and the persons identified as the
+   Copyright (c) 2023 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -114,7 +114,9 @@ Table of Contents
    in the SETTINGS frame with a value of 1.  If the server does not
    support WebSockets over HTTP/2 or HTTP/3, it will not have the
    parameter in the SETTINGS frame or send it with a value of 0.
-   Receipt of this parameter by a server does not have any impact.
+
+   A client MUST not send this setting parameter.  Receipt of this
+   parameter by a server does not have any impact.
 
    The SETTINGS_ENABLE_WEBSOCKETS parameter would allow the client to
    determine in advance whether the server supports WebSockets over the
