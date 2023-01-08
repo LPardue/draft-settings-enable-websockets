@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-01-05T00:52:45.462121+00:00",
+  "timestamp": "2023-01-08T00:54:37.071614+00:00",
   "repo": "momoka0122y/draft-settings-enable-websockets",
   "labels": [
     {
@@ -55,15 +55,15 @@
       "id": "I_kwDOIefdHc5aLfWe",
       "title": "Is a client allowed to send SETTINGS_ENABLE_WEBSOCKETS?",
       "url": "https://github.com/momoka0122y/draft-settings-enable-websockets/issues/1",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bencebeky",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "The draft currently states:\r\n\r\n> Receipt of this parameter by a server does not have any impact.\r\n\r\nIs might be worth considering to state instead that a client MUST not send the setting.",
       "createdAt": "2022-12-28T16:34:32Z",
-      "updatedAt": "2022-12-28T16:34:32Z",
-      "closedAt": null,
+      "updatedAt": "2023-01-07T07:58:21Z",
+      "closedAt": "2023-01-07T07:58:21Z",
       "comments": []
     }
   ],
@@ -73,24 +73,26 @@
       "id": "PR_kwDOIefdHc5GnyQ-",
       "title": "client MUST not send SETTINGS_ENABLE_WEBSOCKETS",
       "url": "https://github.com/momoka0122y/draft-settings-enable-websockets/pull/2",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "momoka0122y",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "resolve #1",
       "createdAt": "2023-01-04T12:31:59Z",
-      "updatedAt": "2023-01-04T12:33:33Z",
+      "updatedAt": "2023-01-07T07:59:06Z",
       "baseRepository": "momoka0122y/draft-settings-enable-websockets",
       "baseRefName": "main",
       "baseRefOid": "47e71c2908a04bab70a78d18a26ab8f9b5453872",
       "headRepository": "momoka0122y/draft-settings-enable-websockets",
       "headRefName": "ClientMustNot",
-      "headRefOid": "ee0265eaad9388fe04d2606f9b4b2d889f85bed2",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "8a93299e4c68c82a89b12aa6efc8096cc7c55699",
+      "closedAt": "2023-01-07T07:58:20Z",
+      "mergedAt": "2023-01-07T07:58:20Z",
+      "mergedBy": "momoka0122y",
+      "mergeCommit": {
+        "oid": "bcee2e5107b620f43ff00487728d70c5e8d0850d"
+      },
       "comments": [],
       "reviews": []
     }
